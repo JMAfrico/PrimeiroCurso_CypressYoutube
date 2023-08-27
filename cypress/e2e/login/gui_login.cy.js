@@ -18,7 +18,7 @@ describe('Teste de Login', () => {
         cy.get('.product_label').should('contain','Products')
     });
 
-    it.only('Autenticação com login invalido', () => {
+    it('Autenticação com login invalido', () => {
         cy.visit("https://www.saucedemo.com/v1/")
         cy.get('[data-test="username"]').type("standard_user")
         cy.get('[data-test="password"]').type("erro")
