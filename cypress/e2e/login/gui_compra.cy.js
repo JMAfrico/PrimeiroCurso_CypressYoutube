@@ -1,7 +1,7 @@
 /// <reference types="Cypress"/>
 
 describe('Comprar produto', () => {
-    it('Compra de produto com sucesso', () => {
+    it('Compra de produto com sucesso sem commands', () => {
         //acessa o site
         cy.visit("https://www.saucedemo.com/v1/")
 
@@ -45,4 +45,10 @@ describe('Comprar produto', () => {
         cy.get('.btn_action').click()
         cy.get('.complete-header').should('contain','THANK YOU FOR YOUR ORDER')
     });
+
+    it('compra de produto com commands',()=>{
+        cy.realizar_login("standard_user","secret_sauce")
+        cy.seleciona_produto('Sauce Labs Onesie')
+        cy.finaliza_compra()
+    })
 });
